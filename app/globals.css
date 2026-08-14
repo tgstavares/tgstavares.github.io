@@ -430,17 +430,22 @@ html[data-palette="day"] .palette-day {
 
 .paper-links a,
 .abstract-toggle {
-  padding: 1px 6px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
   background: var(--surface);
   color: var(--accent-strong);
   font-family: var(--font-source-sans), Arial, sans-serif;
   font-size: 0.7rem;
   font-weight: 650;
+  line-height: 18px;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-.paper-links a:hover {
+.paper-links a:hover,
+.abstract-toggle:hover {
+  border-color: var(--accent);
   background: var(--surface-strong);
   color: var(--text);
 }
