@@ -1,60 +1,92 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { headers } from "next/headers";
-import { SiteFooter, SiteHeader } from "./site-chrome";
+import { Source_Sans_3 } from "next/font/google";
+import { SiteHeader } from "./site-chrome";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  PERSON_JSON_LD,
+  SITE_NAME,
+  SITE_URL,
+  SOCIAL_IMAGE,
+} from "./site-metadata";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sourceSans = Source_Sans_3({
+  variable: "--font-source-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host =
-    requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host");
-  const protocol =
-    requestHeaders.get("x-forwarded-proto") ??
-    (host?.startsWith("localhost") ? "http" : "https");
-  const siteUrl = host ? `${protocol}://${host}` : "https://www.tgstavares.com";
-  const description =
-    "Academic website of Tiago Tavares, economist at the University of Minho.";
-
-  return {
-    title: {
-      default: "Tiago Tavares · Economist",
-      template: "%s · Tiago Tavares",
+export const metadata: Metadata = {
+  metadataBase: SITE_URL,
+  title: {
+    default: DEFAULT_TITLE,
+    template: `%s · ${SITE_NAME}`,
+  },
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  keywords: [
+    "Tiago Tavares",
+    "economist",
+    "macroeconomics",
+    "international macroeconomics",
+    "sovereign debt",
+    "firm dynamics",
+    "University of Minho",
+  ],
+  alternates: { canonical: "/" },
+  category: "education",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png", sizes: "200x200" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: "/",
+    images: [SOCIAL_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@tgstavares",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [SOCIAL_IMAGE.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
-    description,
-    icons: {
-      icon: "/favicon.png",
-      shortcut: "/favicon.png",
-    },
-    openGraph: {
-      type: "website",
-      title: "Tiago Tavares · Economist",
-      description,
-      url: siteUrl,
-      images: [{ url: `${siteUrl}/og.png`, width: 1733, height: 909 }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Tiago Tavares · Economist",
-      description,
-      images: [`${siteUrl}/og.png`],
-    },
-  };
-}
+  },
+};
 
 const themeScript = `
   try {
-    const saved = localStorage.getItem('tiago-theme');
-    document.documentElement.dataset.theme = saved === 'light' ? 'light' : 'dark';
+    const saved = localStorage.getItem('tiago-palette');
+    const migrated = saved === 'day' || saved === 'monochrome' ? 'day' : 'cobalt';
+    document.documentElement.dataset.palette = migrated;
+    if (saved && saved !== migrated) localStorage.setItem('tiago-palette', migrated);
   } catch (_) {}
 `;
 
@@ -64,17 +96,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" data-theme="dark" data-palette="cobalt" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(PERSON_JSON_LD).replace(/</g, "\\u003c"),
+          }}
+        />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={sourceSans.variable}>
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>
         <SiteHeader />
         <div id="main-content">{children}</div>
-        <SiteFooter />
       </body>
     </html>
   );

@@ -2,42 +2,65 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Mail } from "lucide-react";
+import { useSyncExternalStore } from "react";
+import { FaGithub } from "react-icons/fa";
 
 const navigation = [
   { href: "/", label: "Home" },
   { href: "/research", label: "Research" },
   { href: "/teaching", label: "Teaching" },
   { href: "/cv", label: "CV" },
-  { href: "/personal", label: "Personal" },
 ];
 
-function ThemeToggle() {
-  const [isLight, setIsLight] = useState(false);
+const palettes = [
+  { id: "cobalt", label: "Cobalt" },
+  { id: "day", label: "Day" },
+] as const;
 
-  useEffect(() => {
-    setIsLight(document.documentElement.dataset.theme === "light");
-  }, []);
+type Palette = (typeof palettes)[number]["id"];
 
-  function toggleTheme() {
-    const nextIsLight = !isLight;
-    setIsLight(nextIsLight);
-    document.documentElement.dataset.theme = nextIsLight ? "light" : "dark";
-    localStorage.setItem("tiago-theme", nextIsLight ? "light" : "dark");
-  }
+const paletteChangeEvent = "tiago-palette-change";
+
+function getPaletteSnapshot(): Palette {
+  const currentPalette = document.documentElement.dataset.palette;
+  return currentPalette === "day" ? "day" : "cobalt";
+}
+
+function subscribeToPalette(onStoreChange: () => void) {
+  window.addEventListener(paletteChangeEvent, onStoreChange);
+  return () => window.removeEventListener(paletteChangeEvent, onStoreChange);
+}
+
+function selectPalette(nextPalette: Palette) {
+  document.documentElement.dataset.palette = nextPalette;
+  localStorage.setItem("tiago-palette", nextPalette);
+  window.dispatchEvent(new Event(paletteChangeEvent));
+}
+
+function PalettePicker() {
+  const activePalette = useSyncExternalStore(
+    subscribeToPalette,
+    getPaletteSnapshot,
+    () => "cobalt",
+  );
 
   return (
-    <button
-      className="icon-button"
-      type="button"
-      onClick={toggleTheme}
-      aria-label={isLight ? "Use dark theme" : "Use light theme"}
-      title={isLight ? "Use dark theme" : "Use light theme"}
-    >
-      <span className="theme-symbol" aria-hidden="true">
-        {isLight ? "☾" : "☀"}
-      </span>
-    </button>
+    <div className="palette-picker" aria-label="Color theme">
+      {palettes.map((option) => (
+        <button
+          className={`palette-swatch palette-${option.id}`}
+          type="button"
+          key={option.id}
+          onClick={() => selectPalette(option.id)}
+          aria-label={`Use ${option.label} theme`}
+          aria-pressed={activePalette === option.id}
+          title={`${option.label} theme`}
+        >
+          <span aria-hidden="true" />
+        </button>
+      ))}
+    </div>
   );
 }
 
@@ -68,39 +91,26 @@ export function SiteHeader() {
         </nav>
         <div className="header-actions">
           <a
-            className="icon-button"
+            className="header-icon-link"
             href="mailto:tgstavares@eeg.uminho.pt"
             aria-label="Email Tiago Tavares"
             title="Email"
           >
-            <span className="header-symbol" aria-hidden="true">@</span>
+            <Mail aria-hidden="true" />
           </a>
           <a
-            className="icon-button"
-            href="/files/TiagoTavares_CV.pdf"
-            aria-label="Open curriculum vitae"
-            title="Curriculum vitae"
+            className="header-icon-link"
+            href="https://github.com/tgstavares"
+            aria-label="Tiago Tavares on GitHub"
+            title="GitHub"
+            target="_blank"
+            rel="noreferrer"
           >
-            <span className="header-symbol header-symbol-cv" aria-hidden="true">CV</span>
+            <FaGithub aria-hidden="true" />
           </a>
-          <ThemeToggle />
+          <PalettePicker />
         </div>
       </div>
     </header>
-  );
-}
-
-export function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="footer-inner">
-        <span>© {new Date().getFullYear()} Tiago Tavares</span>
-        <div className="footer-links">
-          <a href="mailto:tgstavares@eeg.uminho.pt">Email</a>
-          <a href="/files/TiagoTavares_CV.pdf">CV</a>
-          <a href="/legacy/archive.html">Legacy archive</a>
-        </div>
-      </div>
-    </footer>
   );
 }

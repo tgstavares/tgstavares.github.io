@@ -8,6 +8,8 @@ export type Paper = {
   title: string;
   authors: string;
   venue?: string;
+  journal?: string;
+  journalDetails?: string;
   href?: string;
   links?: PaperLink[];
   abstract?: string;
@@ -16,13 +18,32 @@ export type Paper = {
 export const workingPapers: Paper[] = [
   {
     year: "2026",
+    title: "xhdfe: Fast high-dimensional fixed-effects estimation in Stata",
+    authors: "Tiago Tavares joint with Miguel Portela",
+    venue: "Working paper",
+    href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7271338",
+    links: [
+      {
+        label: "LINK",
+        href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7271338",
+      },
+      {
+        label: "GITHUB",
+        href: "https://github.com/reisportela/xhdfe-xfe",
+      },
+    ],
+    abstract:
+      "xhdfe is a Stata command for linear regression with high-dimensional fixed effects. It targets the same partialled-out least-squares estimator as reghdfe on the overlapping specifications studied here, while moving the main absorption workload into a compiled C++ backend with multithreaded CPU execution and optional NVIDIA CUDA acceleration. The command preserves a Stata e-class interface while supporting multiple absorbed fixed effects, clustered and robust standard errors, heterogeneous slopes in the tested specifications, backend choices, saved fixed effects, residuals, fitted values, and stored results. We validate xhdfe on two large wage regressions using Portuguese matched employer-employee data. The command reproduces reghdfe coefficients and standard errors within tight numerical tolerances and delivers speedups above 100-fold with CPU execution and 200-fold with CUDA acceleration in the fastest configurations. Compared with alternative high-dimensional fixed-effects implementations, xhdfe records the shortest runtimes among the implementations and configurations reported here. The development history also provides a case study of AI-assisted software development. Agentic tools supported coding and review, while conventional numerical tests and reproducible benchmarks assessed the resulting changes.",
+  },
+  {
+    year: "2026",
     title: "Financing Transformative Search: Runway, Control, and Frontier Innovation",
     authors: "Tiago Tavares",
     venue: "Working paper",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6843799",
     links: [
       {
-        label: "SSRN",
+        label: "LINK",
         href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6843799",
       },
     ],
@@ -32,12 +53,13 @@ export const workingPapers: Paper[] = [
   {
     year: "2024",
     title: "Financially Constrained Households and Consumption Volatility in Open Economies",
-    authors: "with Anurag Singh",
-    venue: "Revise and resubmit, IMF Economic Review",
+    authors: "Tiago Tavares joint with Anurag Singh",
+    venue: "Revise and resubmit",
+    journal: "IMF Economic Review",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5020698",
     links: [
       {
-        label: "SSRN",
+        label: "LINK",
         href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5020698",
       },
     ],
@@ -47,15 +69,14 @@ export const workingPapers: Paper[] = [
   {
     year: "2024",
     title: "Competition for Managers and the Rise in Skill Premium",
-    authors: "with Kaniska Dam and Tridib Sharma",
+    authors: "Tiago Tavares joint with Kaniska Dam and Tridib Sharma",
     venue: "Submitted",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4636773",
     links: [
       {
-        label: "SSRN",
+        label: "LINK",
         href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4636773",
       },
-      { label: "PDF", href: "/files/Dam_Sharma_Tavares_2023_manpremium.pdf" },
     ],
     abstract:
       "Managerial occupations represent a significant and expanding segment of the US labor force, while good managerial practices enhance production efficiency. We study how competition among firms for managerial services affects managerial compensation and, through firms' demand for other factors of production, the compensation of high-skill workers and the skill premium.",
@@ -63,12 +84,13 @@ export const workingPapers: Paper[] = [
   {
     year: "2020",
     title: "Delays in Death Reports and their Implications for Tracking the Evolution of COVID-19",
-    authors: "with Emilio Gutierrez and Adrian Rubli",
-    venue: "Covid Economics 1(34): 116–144",
+    authors: "Tiago Tavares joint with Emilio Gutierrez and Adrian Rubli",
+    journal: "Covid Economics",
+    journalDetails: "1(34): 116–144",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3645304",
     links: [
       {
-        label: "SSRN",
+        label: "LINK",
         href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3645304",
       },
       { label: "PDF", href: "/files/GRT_Delays_Covid_Economics.pdf" },
@@ -79,25 +101,17 @@ export const workingPapers: Paper[] = [
   {
     year: "2017",
     title: "Heterogeneous Investment Dynamics of Greek Manufacturing Firms",
-    authors: "with Alexandros Fakos",
+    authors: "Tiago Tavares joint with Alexandros Fakos",
     venue: "Under revision",
     href: "https://econpapers.repec.org/paper/redsed017/1597.htm",
     links: [
       {
-        label: "RePEc",
+        label: "LINK",
         href: "https://econpapers.repec.org/paper/redsed017/1597.htm",
       },
     ],
     abstract:
       "We study firm-level investment dynamics by incorporating an idiosyncratic investment-cost shock in a dynamic model of heterogeneous firms with adjustment costs. We estimate the model using micro-level data on Greek manufacturing firms and find that the investment wedge is correlated with measures of leverage and export intensity, suggesting an important financial channel in capital accumulation.",
-  },
-  {
-    year: "2015",
-    title: "Noisy Information About the Trend and Sovereign Default Risk",
-    authors: "Tiago Tavares",
-    venue: "Under revision",
-    abstract:
-      "We build a dynamic stochastic model in which agents cannot perfectly distinguish between trend and transitory components of observed endowments and learn through a signal-extraction problem. Extending the model to include endogenous default risk shows that, for similar endowment and debt levels, greater uncertainty about trend growth implies larger default risk.",
   },
 ];
 
@@ -105,8 +119,8 @@ export const publications: Paper[] = [
   {
     year: "2026",
     title: "Informality, Tax Distortions, and the Cyclicality of Fiscal Policy",
-    authors: "with Carlos Urrutia",
-    venue: "IMF Economic Review",
+    authors: "Tiago Tavares joint with Carlos Urrutia",
+    journal: "IMF Economic Review",
     href: "https://doi.org/10.1057/s41308-026-00306-4",
     links: [
       { label: "DOI", href: "https://doi.org/10.1057/s41308-026-00306-4" },
@@ -122,12 +136,13 @@ export const publications: Paper[] = [
     year: "2025",
     title: "The Role of International Reserves in Sovereign Debt Restructuring under Fiscal Adjustment",
     authors: "Tiago Tavares",
-    venue: "Journal of Economic Dynamics and Control, 174",
-    href: "https://www.sciencedirect.com/science/article/abs/pii/S0165188925000466",
+    journal: "Journal of Economic Dynamics and Control",
+    journalDetails: "174",
+    href: "https://doi.org/10.1016/j.jedc.2025.105080",
     links: [
       {
-        label: "Article",
-        href: "https://www.sciencedirect.com/science/article/abs/pii/S0165188925000466",
+        label: "DOI",
+        href: "https://doi.org/10.1016/j.jedc.2025.105080",
       },
       {
         label: "Working paper",
@@ -140,8 +155,9 @@ export const publications: Paper[] = [
   {
     year: "2022",
     title: "Investment Slumps during Financial Crises: The Real Effects of Credit Supply",
-    authors: "with Alexandros Fakos and Plutarchos Sakellaris",
-    venue: "Journal of Financial Economics, 145(1)",
+    authors: "Tiago Tavares joint with Alexandros Fakos and Plutarchos Sakellaris",
+    journal: "Journal of Financial Economics",
+    journalDetails: "145(1)",
     href: "https://doi.org/10.1016/j.jfineco.2022.04.004",
     links: [
       { label: "DOI", href: "https://doi.org/10.1016/j.jfineco.2022.04.004" },
@@ -156,13 +172,14 @@ export const publications: Paper[] = [
   {
     year: "2022",
     title: "Information and Behavioral Responses during a Pandemic: Evidence from Delays in COVID-19 Death Reports",
-    authors: "with Emilio Gutierrez and Adrian Rubli",
-    venue: "Journal of Development Economics, 154",
-    href: "https://www.sciencedirect.com/science/article/pii/S0304387821001346",
+    authors: "Tiago Tavares joint with Emilio Gutierrez and Adrian Rubli",
+    journal: "Journal of Development Economics",
+    journalDetails: "154",
+    href: "https://doi.org/10.1016/j.jdeveco.2021.102774",
     links: [
       {
-        label: "Article",
-        href: "https://www.sciencedirect.com/science/article/pii/S0304387821001346",
+        label: "DOI",
+        href: "https://doi.org/10.1016/j.jdeveco.2021.102774",
       },
       {
         label: "Working paper",
@@ -176,43 +193,54 @@ export const publications: Paper[] = [
     year: "2019",
     title: "Labor Market Distortions under Sovereign Debt Default Crises",
     authors: "Tiago Tavares",
-    venue: "Journal of Economic Dynamics and Control, 108",
-    href: "https://www.sciencedirect.com/science/article/abs/pii/S0165188919301484",
+    journal: "Journal of Economic Dynamics and Control",
+    journalDetails: "108",
+    href: "https://doi.org/10.1016/j.jedc.2019.103749",
     links: [
       {
-        label: "Article",
-        href: "https://www.sciencedirect.com/science/article/abs/pii/S0165188919301484",
+        label: "DOI",
+        href: "https://doi.org/10.1016/j.jedc.2019.103749",
       },
-      { label: "PDF", href: "/files/Deflab_TiagoTavares_RR.pdf" },
+      { label: "Working paper", href: "/files/Deflab_TiagoTavares_RR.pdf" },
     ],
     abstract:
       "Labor-market distortions deteriorate substantially around sovereign default episodes. I evaluate the roles of labor taxes and working-capital financing costs in a dynamic equilibrium default model. Both mechanisms help reproduce the observed labor wedge and the substantial employment declines surrounding financial crises.",
   },
 ];
 
-export const discussions = [
+export const discussions: Paper[] = [
   {
+    year: "2023",
     title: "Mind the Gaps: Gender Complementarities in Migration and FDI",
     authors: "Federico Carril-Caccia, Ana Cuadros, and Jordi Paniagua",
-    event: "1st Notre Dame–ITAM PODER Mini-Conference, 2023",
+    venue: "1st Notre Dame–ITAM PODER Mini-Conference",
     href: "/files/FDI_disc.pdf",
+    links: [{ label: "PDF", href: "/files/FDI_disc.pdf" }],
   },
   {
+    year: "2022",
     title: "Heterogeneous Beliefs and Business Cycles",
     authors: "Saki Bigio, Dejanir Silva, and Eduardo Zilberman",
-    event: "10th Luso-Brazilian Meeting in Macroeconomics, 2022",
+    venue: "10th Luso-Brazilian Meeting in Macroeconomics",
     href: "/files/Discussion_Dejanir_lubramacro_2022.pdf",
+    links: [
+      { label: "PDF", href: "/files/Discussion_Dejanir_lubramacro_2022.pdf" },
+    ],
   },
   {
+    year: "2021",
     title: "Trade Collapses and Sovereign Debt Restructurings",
     authors: "Tamon Asonuma, Marcos Chamon, and Akira Sasahara",
-    event: "International Macro/Finance and Sovereign Debt Workshop, 2021",
+    venue: "International Macro/Finance and Sovereign Debt Workshop",
     href: "/files/Presentation_Sogang_2021.pdf",
+    links: [{ label: "PDF", href: "/files/Presentation_Sogang_2021.pdf" }],
   },
   {
+    year: "2019",
     title: "Official Sector Lending Strategies During the Euro Area Crisis",
     authors: "Giancarlos Corsetti, Aitor Erce, and Timothy Uy",
-    event: "Sovereign Debt Restructuring Conference, 2019",
+    venue: "Sovereign Debt Restructuring Conference",
     href: "/files/TiagoDiscussion_Erce.pdf",
+    links: [{ label: "PDF", href: "/files/TiagoDiscussion_Erce.pdf" }],
   },
 ];
