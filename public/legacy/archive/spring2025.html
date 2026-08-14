@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.26">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Spring2025 – Tiago Tavares</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b758ccaa5987ceb1b75504551e579abf.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-0d4a9d19931feb4fee1ddab4b2489000.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-f93c2b1f3f0577f377aefa4848a86a36.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+(function () {
+  try {
+    if (!localStorage.getItem("quarto-color-scheme")) {
+      localStorage.setItem("quarto-color-scheme", "alternate");
+    }
+  } catch (error) {}
+})();
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Tiago Tavares</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../references.html"> 
+<span class="menu-text">References</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../personal.html"> 
+<span class="menu-text">Personal</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../archive.html"> 
+<span class="menu-text">Archive</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:tgstavares@eeg.uminho.pt"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../assets/files/TiagoTavares_CV.pdf"> <i class="bi bi-file-earmark-pdf" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Spring2025</h1>
+</div>
+
+
+
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="migrated-page archive-snapshot">
+
+<h1>Spring 2025: University of Minho</h1><h2 class="anchored">Advanced macroeconomics II (Fridays, 11:00-14:00, room E8-0.35)</h2><ul><li><p class=""><a href="https://drive.google.com/file/d/1P4auaYfZpuUf3dnyMF8bolY6GpqQG0vl/view?usp=share_link" target="_blank">Syllabus</a></p></li><li><p class="">Readings:</p><ul><li><p class="">Week 1: The neoclassical growth model, value function iteration (<a href="https://drive.google.com/file/d/13nMC2l9fxIT-E2kn2Ea5aflM20GYLRls/view?usp=share_link" target="_blank">handout 1</a>; <a href="https://drive.google.com/file/d/16QhAZ2QyFQlDzo0jms2tZwb5biCGP4q0/view?usp=share_link" target="_blank">handout2</a>; <a href="https://drive.google.com/drive/folders/15ZHnXGpL9fPUNfeU_HKIr-E6pc4Up89l?usp=share_link" target="_blank">codes1</a>)</p></li><li><p class="">Week 2: Log-linearization, rational expectation models, and Dynare (<a href="https://drive.google.com/file/d/1NM79tVgB8wwj_KnzOFMdLNQnWHSTY1Qp/view?usp=share_link" target="_blank">handout3</a>; <a href="https://drive.google.com/file/d/1QOKZU8mmWvLy7DAZGRDhK3eDVz1mO_dU/view?usp=share_link" target="_blank">handout4</a>; <a href="https://drive.google.com/file/d/1hFj-xJCKq4vbGdGuDdooMiFYVpKTc2Eo/view?usp=share_link" target="_blank">handout5</a>; <a href="https://drive.google.com/drive/folders/1QlYttqfo0k-lYs18I1kYDbDrphrx0MvY?usp=share_link" target="_blank">codes2</a>)</p></li><li><p class="">Week 3: Real business cycle models (<a href="https://drive.google.com/file/d/1F9kHYATGHesnnCKx5Y_bGBB5cChAjJkZ/view?usp=share_link" target="_blank">handout6</a>; <a href="https://drive.google.com/drive/folders/1j-IwaWmAa4o3vG3wHrlLrQ4ZFYNlGb1t?usp=share_link" target="_blank">codes3</a>)</p></li><li><p class="">Week 4: Applications of real business models: fiscal policies and small open economies (<a href="https://drive.google.com/file/d/1AQla5YJerY1Gxp9sqit2bjMbFk7Ts0Rl/view?usp=share_link" target="_blank">handout7</a>; <a href="https://drive.google.com/drive/folders/1FIjAMyt18v49OnpnG6oSu_AeZyq4iXPS?usp=share_link" target="_blank">codes4</a>)</p></li><li><p class="">Week 5: Business Cycle Accounting and Wedges (<a href="https://drive.google.com/file/d/1P6hzl6v51EFP_ej9ndEdKDdnoFO0x0FU/view?usp=share_link" target="_blank">handout8</a>)</p></li><li><p class="">Week 6: The New Keynesian Model (<a href="https://drive.google.com/file/d/1PlI7A0ZptBYYwZuVklutnf4TOjpO7JwE/view?usp=share_link" target="_blank">handout9</a>, <a href="https://drive.google.com/drive/folders/1PGlz3tJ9VMO_SjDRL1qmbNxcdoOlOyce?usp=share_link" target="_blank">codes 5</a>)</p></li><li><p class="">Week 7: Reduction of the New Keynesian Model to three equation system (<a href="https://drive.google.com/file/d/1PlI7A0ZptBYYwZuVklutnf4TOjpO7JwE/view?usp=share_link" target="_blank">handout9</a>, <a href="https://drive.google.com/drive/folders/1PGlz3tJ9VMO_SjDRL1qmbNxcdoOlOyce?usp=share_link" target="_blank">codes 5</a>)</p></li></ul></li></ul><h2 class="anchored">Topics in the Economics of Banking and Money (Thursdays, 17:00-19:30, room E1-2.18)</h2><ul><li><p class=""><a href="https://drive.google.com/file/d/1vLn3a9fabtt3uuut2NxJuNkiKSEAOphT/view?usp=share_link" target="_blank">Syllabus</a></p></li><li><p class="">Readings for this course:</p><ul><li><p class="">Week 1: Motivation and introduction to the economics of banking; brief history of the evolution of banking and financial markets; math review of constrained optimization theory [<a href="https://drive.google.com/file/d/1vJVWQ2adOz4mo5ao6qeEhjU5Sg4drQZP/view?usp=sharing" target="_blank">handout1</a>; <a href="https://drive.google.com/file/d/1sCmTQtgJj5niQcRNP2Wtwx_YhjzKNtLr/view?usp=share_link" target="_blank">handout2</a>] </p></li><li><p class="">Week 2: Consumption and savings decisions over time, uncertainty, and attitudes towards risk [<a href="https://drive.google.com/file/d/1zyOQqpWyApIs2IRcTxCoLPRhmVHJ8CKR/view?usp=share_link" target="_blank">handout3</a>]</p></li><li><p class="">Week 3: General equilibrium under uncertainty: Arrow-Debreu financial markets [<a href="https://drive.google.com/file/d/1cmHqI7TsGCmjlpGE__4_7K68y3Qt2G0R/view?usp=share_link" target="_blank">handout4</a>]</p></li><li><p class="">Week 4: Liquidity and banking [<a href="https://drive.google.com/file/d/1gMAC38_hpnKgbKQjzFKblWGXkGVDAl9a/view?usp=share_link" target="_blank">handout5</a>]</p></li><li><p class="">Week 5: Nash equilibria and bank runs [<a href="https://drive.google.com/file/d/1n2o9MpB0g54jwuy1eHzJ4JxdIDi060Wh/view?usp=share_link" target="_blank">handout6</a>]</p></li><li><p class="">Week 6: Historical macro-financial crises: The Great Depression &amp; The Great Recession [<a href="https://drive.google.com/file/d/1CDkRKd5nD2AYclzmE_mgrzrwgz7G_l0D/view?usp=sharing" target="_blank">handout7</a>]</p></li><li><p class="">Week 7: Financial fragility of banking intermediation and aggregate risk [<a href="https://drive.google.com/file/d/1QHQlt-FsdiRb9XG3xks7tnUuqcdm_EOO/view?usp=share_link" target="_blank">handout 8</a>]</p></li><li><p class="">Week 8: Macroeconomic consequences of financial imperfections [<a href="https://drive.google.com/file/d/1o3N9SaTWLQKNF0XMP8AuV4MOVkoQksAF/view?usp=share_link" target="_blank">handout 9</a>]</p></li><li><p class="">Week 9: European Banking Crisis &amp; Sovereign Debt Crisis – Implications for Post-2008 Regulations [<a href="https://drive.google.com/file/d/1CWexrlTKVTQeMDQLCPAIar0fh4FyhQSU/view?usp=share_link" target="_blank">handout10</a>]</p></li></ul></li><li><p class="">Exercises: <a href="https://drive.google.com/file/d/1nE8YeB2KdX6QkRh-u20yPra18vbF0q7B/view?usp=share_link" target="_blank">set1</a>; <a href="https://drive.google.com/file/d/1I-_q42SD-epuk31K2SD2LRBIUDvqH5lk/view?usp=share_link" target="_blank">set2</a></p></li></ul><h2 class="anchored">International Trade (Tuesdays 14:00-18:00, Thursdays 9:00-13:00 and 14:00-16:00)</h2><ul><li><p class="">Other media related to International Trade: <a href="https://www.youtube.com/watch?v=wwmOkaKh3-s">Charlie Rose's debate about NAFTA with James Goldsmith and Laura Tyson</a>; <a href="http://www.nobelprize.org/mediaplayer/index.php?id=1072">Paul Krugman Prize Lecture</a>; <a href="http://files.libertyfund.org/econtalk/y2010/Robertstrade.mp3">Russ Roberts on Smith, Ricardo, and Trade</a></p></li><li><p class="">Readings for my part of this course:</p><ul><li><p class="">Week 1: Pure exchange and Ricardian models [<a href="https://drive.google.com/file/d/1ZRJK5HX68SwuUUT38Cuhf3D-E7kZKBDo/view?usp=share_link" target="_blank">handout1</a>; <a href="https://drive.google.com/file/d/1xJNkC28cRqRfBGqScQTm_skED-9NKxaU/view?usp=share_link" target="_blank">handout2</a>; chapter 3]; additional readings:</p><ul><li><p class=""><a href="https://www.jstor.org/stable/2117633?seq=1" target="_blank">What Do Undergrads Need to Know About Trade?</a>, Paul Krugman (1993) </p></li><li><p class=""><a href="https://www.aeaweb.org/articles?id=10.1257/jep.26.2.65" target="_blank">Putting Ricardo to Work</a>, Jonathan Eaton and Samuel Kortum (2012)</p></li></ul></li><li><p class="">Week 2: Implications and extensions of the Ricardian model, the specific factor model [<a href="https://drive.google.com/file/d/1aBwuoKq-zYx4zer07H1wmHjYULb0Lf05/view?usp=share_link" target="_blank">handout1</a>; <a href="https://drive.google.com/file/d/1ZRXM4_uZ0cw-in1EMUaG662qhnT-BKlv/view?usp=share_link" target="_blank">handout2</a>; <a href="https://drive.google.com/file/d/1_xjypuDj_TU0OgMUpCASELJ2ooXvg4de/view?usp=share_link" target="_blank">handout3</a>; chapter 3 and chapter 4]; additional readings:</p><ul><li><p class=""><a href="https://www.jstor.org/stable/pdf/1830668.pdf?refreqid=fastly-default%3A616b97ceea67f18870dec974b4ca9fb4&amp;ab_segments=&amp;initiator=&amp;acceptTC=1" target="_blank">Tariffs and the Distribution of Income: The Importance of Factor Specificity</a>, Michael Mussa (1974)</p></li><li><p class=""><a href="https://www.youtube.com/watch?v=7g9Bb2xcXcI" target="_blank">Lecture video of Ronald Jones on the specific factor model and Trade theory</a></p></li></ul></li><li><p class="">Week 3: Trade gravity equations and the Armington model;  Inter/Intra sectoral trade; market power and increasing returns to scale [<a href="https://drive.google.com/file/d/1w_7iGgTOb5UmYf71tuBj_5nclsfrRkhO/view?usp=share_link" target="_blank">handout1</a>; <a href="https://drive.google.com/file/d/1wW2lwiKpQR1qwgYdQk-0XyGG_5hxZHsa/view?usp=share_link" target="_blank">handout2</a>; <a href="https://drive.google.com/file/d/1wIGO6jJtZR4zxI7IQYs354uWehsfaaQw/view?usp=share_link" target="_blank">handout3</a>; <a href="https://drive.google.com/file/d/1tpqBN6f53mCF4bYIvatGXEccnxhUJVpX/view?usp=share_link" target="_blank">Armington model matlab</a>; chapter 2, chapter 7]</p><ul><li><p class=""><a href="https://www.nobelprize.org/prizes/economic-sciences/2008/krugman/lecture/" target="_blank">Krugman Nobel prize lecture</a></p></li><li><p class="">“<a href="https://www.economist.com/the-americas/2024/06/13/why-latin-america-is-the-worlds-trade-pipsqueak" target="_blank">Why Latin America is the world’s trade pipsqueak</a>” The Economist article.</p></li></ul></li><li><p class="">Week 3: The Krugman model [<a href="https://drive.google.com/file/d/13NTqrGQCQ2oKcjJZyAPXu8Ejh9Vc3jCK/view?usp=sharing" target="_blank">handout1</a>, <a href="https://drive.google.com/file/d/13TqYR2nFkuwocuw67lv7nZ5_x5OjbP7n/view?usp=sharing" target="_blank">handout2</a>, <a href="https://drive.google.com/file/d/13V-eM0pZ7iWxpS1-9iFcvtVfen_d07VY/view?usp=sharing" target="_blank">handout3</a>, <a href="https://drive.google.com/file/d/13LlyKl3T901kLo5vOAoKfmfCCRK0p-Uk/view?usp=share_link" target="_blank">exercises</a>, chapter 7]</p><ul><li><p class="">“<a href="https://www.economist.com/special-report/2016/09/29/coming-and-going" target="_blank">Coming and going</a>” The Economist article</p></li><li><p class="">“<a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/aer.99.3.561" target="_blank">The Increasing Returns Revolution in Trade and Geography</a>” Paul Krugman, 2009</p></li></ul></li><li><p class="">Week 4: The Melitz model [<a href="https://drive.google.com/file/d/0BxqkNDRWUG6UdDRlSERJQ3dWc0E/view?usp=sharing&amp;resourcekey=0-Zkr4CtiNvfBkHKgPxBLYbA" target="_blank">handout1</a>, <a href="https://drive.google.com/file/d/16Bl2JLyX9vniTbMF9oqRAsnDy1OXFt7G/view?usp=sharing" target="_blank">exercises</a>, chapter 7 and 8]</p></li></ul></li><li><p class="">Grades: <a href="https://drive.google.com/file/d/1evrt_CCytp-G2srGoSML6O9aII84OcbW/view?usp=share_link" target="_blank">Quiz1</a></p></li></ul>
+
+</div>
+
+
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".collapsible").forEach(function (button) {
+    button.addEventListener("click", function () {
+      button.classList.toggle("active");
+      var content = button.nextElementSibling;
+      if (!content || !content.classList.contains("content")) return;
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/www\.tgstavares\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Tiago Tavares</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with Quarto</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
