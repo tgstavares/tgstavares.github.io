@@ -59,13 +59,47 @@ test("server-renders the academic homepage", async () => {
   assert.match(html, /Recent working papers/);
   assert.match(html, /Publications/);
   assert.match(html, /xhdfe: Fast high-dimensional fixed-effects estimation in Stata/);
-  assert.match(html, /Tiago Tavares joint with Miguel Portela/);
+  assert.match(
+    html,
+    /href="https:\/\/reisportela\.github\.io">Miguel Portela<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/s-anurag\.github\.io">Anurag Singh<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/kaniskadam\.weebly\.com">Kaniska Dam<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/faculty\.itam\.mx\/en\/facultad\/tridib-sharma">Tridib Sharma<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/sites\.google\.com\/view\/carlos-urrutia\/">Carlos Urrutia<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/sites\.google\.com\/view\/plutarchossakellaris">Plutarchos Sakellaris<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/alexfakos\.weebly\.com">Alexandros Fakos<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/www\.emiliogutierrez\.net">Emilio Gutierrez<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/www\.adrianrubli\.com">Adrian Rubli<\/a>/,
+  );
   assert.match(html, /abstract_id=7271338/);
   assert.match(
     html,
     /href="https:\/\/github\.com\/reisportela\/xhdfe-xfe"[^>]*aria-label="GITHUB for xhdfe:[^"]+">GITHUB<\/a>/,
   );
-  assert.match(html, /Tiago Tavares joint with Anurag Singh/);
   assert.doesNotMatch(
     html,
     /Delays in Death Reports and their Implications|Heterogeneous Investment Dynamics of Greek Manufacturing Firms/,

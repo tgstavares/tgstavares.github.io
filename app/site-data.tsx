@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export type PaperLink = {
   label: string;
   href: string;
@@ -6,7 +8,7 @@ export type PaperLink = {
 export type Paper = {
   year: string;
   title: string;
-  authors: string;
+  authors: ReactNode;
   venue?: string;
   journal?: string;
   journalDetails?: string;
@@ -19,7 +21,12 @@ export const workingPapers: Paper[] = [
   {
     year: "2026",
     title: "xhdfe: Fast high-dimensional fixed-effects estimation in Stata",
-    authors: "Tiago Tavares joint with Miguel Portela",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://reisportela.github.io">Miguel Portela</a>
+      </>
+    ),
     venue: "Working paper",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7271338",
     links: [
@@ -53,7 +60,12 @@ export const workingPapers: Paper[] = [
   {
     year: "2024",
     title: "Financially Constrained Households and Consumption Volatility in Open Economies",
-    authors: "Tiago Tavares joint with Anurag Singh",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://s-anurag.github.io">Anurag Singh</a>
+      </>
+    ),
     venue: "Revise and resubmit",
     journal: "IMF Economic Review",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5020698",
@@ -69,7 +81,15 @@ export const workingPapers: Paper[] = [
   {
     year: "2024",
     title: "Competition for Managers and the Rise in Skill Premium",
-    authors: "Tiago Tavares joint with Kaniska Dam and Tridib Sharma",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://kaniskadam.weebly.com">Kaniska Dam</a> and{" "}
+        <a href="https://faculty.itam.mx/en/facultad/tridib-sharma">
+          Tridib Sharma
+        </a>
+      </>
+    ),
     venue: "Submitted",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4636773",
     links: [
@@ -84,7 +104,13 @@ export const workingPapers: Paper[] = [
   {
     year: "2020",
     title: "Delays in Death Reports and their Implications for Tracking the Evolution of COVID-19",
-    authors: "Tiago Tavares joint with Emilio Gutierrez and Adrian Rubli",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://www.emiliogutierrez.net">Emilio Gutierrez</a> and{" "}
+        <a href="https://www.adrianrubli.com">Adrian Rubli</a>
+      </>
+    ),
     journal: "Covid Economics",
     journalDetails: "1(34): 116–144",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3645304",
@@ -101,7 +127,12 @@ export const workingPapers: Paper[] = [
   {
     year: "2017",
     title: "Heterogeneous Investment Dynamics of Greek Manufacturing Firms",
-    authors: "Tiago Tavares joint with Alexandros Fakos",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://alexfakos.weebly.com">Alexandros Fakos</a>
+      </>
+    ),
     venue: "Under revision",
     href: "https://econpapers.repec.org/paper/redsed017/1597.htm",
     links: [
@@ -119,7 +150,12 @@ export const publications: Paper[] = [
   {
     year: "2026",
     title: "Informality, Tax Distortions, and the Cyclicality of Fiscal Policy",
-    authors: "Tiago Tavares joint with Carlos Urrutia",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://sites.google.com/view/carlos-urrutia/">Carlos Urrutia</a>
+      </>
+    ),
     journal: "IMF Economic Review",
     href: "https://doi.org/10.1057/s41308-026-00306-4",
     links: [
@@ -155,7 +191,15 @@ export const publications: Paper[] = [
   {
     year: "2022",
     title: "Investment Slumps during Financial Crises: The Real Effects of Credit Supply",
-    authors: "Tiago Tavares joint with Alexandros Fakos and Plutarchos Sakellaris",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://alexfakos.weebly.com">Alexandros Fakos</a> and{" "}
+        <a href="https://sites.google.com/view/plutarchossakellaris">
+          Plutarchos Sakellaris
+        </a>
+      </>
+    ),
     journal: "Journal of Financial Economics",
     journalDetails: "145(1)",
     href: "https://doi.org/10.1016/j.jfineco.2022.04.004",
@@ -172,7 +216,13 @@ export const publications: Paper[] = [
   {
     year: "2022",
     title: "Information and Behavioral Responses during a Pandemic: Evidence from Delays in COVID-19 Death Reports",
-    authors: "Tiago Tavares joint with Emilio Gutierrez and Adrian Rubli",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://www.emiliogutierrez.net">Emilio Gutierrez</a> and{" "}
+        <a href="https://www.adrianrubli.com">Adrian Rubli</a>
+      </>
+    ),
     journal: "Journal of Development Economics",
     journalDetails: "154",
     href: "https://doi.org/10.1016/j.jdeveco.2021.102774",
