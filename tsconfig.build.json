@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "next-env.d.ts",
+    "app/**/*.ts",
+    "app/**/*.tsx",
+    "next.config.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".local-scaffolding/**",
+    "app/_sites-preview/**",
+    "app/personal/**",
+    "build/**",
+    "db/**",
+    "drizzle/**",
+    "examples/**",
+    ".next/dev/**"
+  ]
+}

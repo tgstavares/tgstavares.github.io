@@ -18,8 +18,8 @@ export default function Home() {
               className="profile-photo"
               src="/images/tiago-tavares.jpg"
               alt="Tiago Tavares"
-              width="640"
-              height="853"
+              width={1426}
+              height={1918}
               priority
             />
             <div className="intro-copy">

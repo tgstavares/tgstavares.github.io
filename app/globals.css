@@ -254,10 +254,11 @@ html[data-palette="day"] .palette-day {
 .profile-photo {
   display: block;
   width: 100%;
-  aspect-ratio: 5 / 6;
+  height: auto;
   object-fit: cover;
   object-position: center top;
   border: 1px solid var(--line);
+  border-radius: 10px;
   filter: saturate(0.82) contrast(1.03);
 }
 
@@ -269,7 +270,7 @@ html[data-palette="day"] .palette-day {
 
 .home-intro-grid {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
+  grid-template-columns: 235px minmax(0, 1fr);
   align-items: start;
   gap: 30px;
 }
@@ -926,8 +927,10 @@ html[data-palette="day"] .palette-day {
   }
 
   .home-intro-grid {
-    grid-template-columns: 150px minmax(0, 1fr);
-    gap: 24px;
+    grid-template-columns:
+      clamp(180px, calc(25vw + 30px), 235px)
+      minmax(0, 1fr);
+    gap: clamp(24px, calc(2.75vw + 7.5px), 30px);
   }
 
 }
@@ -949,8 +952,13 @@ html[data-palette="day"] .palette-day {
   }
 
   .home-intro-grid {
-    grid-template-columns: 112px minmax(0, 1fr);
-    gap: 15px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .profile-photo {
+    width: min(180px, 55vw);
+    justify-self: center;
   }
 
   .page-header h1 {
