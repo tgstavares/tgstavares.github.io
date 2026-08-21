@@ -317,10 +317,6 @@ export default function ResourcesPage() {
   return (
     <main className="page-shell resources-shell">
       <h1 className="visually-hidden">Econ Resources</h1>
-      <p className="resources-intro">
-        A growing collection of links that may be useful, interesting, or fun
-        for economists.
-      </p>
 
       {resourceGroups.map((group) => (
         <section

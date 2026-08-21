@@ -298,7 +298,7 @@ test("econ resources collects useful and fun external links", async () => {
   const html = await response.text();
   assert.match(html, /<main class="page-shell resources-shell">/);
   assert.match(html, /<h1 class="visually-hidden">Econ Resources<\/h1>/);
-  assert.match(html, /<p class="resources-intro">/);
+  assert.doesNotMatch(html, /resources-intro|A growing collection of links/);
   assert.doesNotMatch(html, /class="page-header"/);
   assert.match(
     html,
