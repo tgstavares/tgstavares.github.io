@@ -45,9 +45,12 @@ npx wrangler d1 migrations apply tgstavares-visitors --remote --config ./wrangle
 
 ## Read recent visits
 
+In Cloudflare D1 Studio, select the `visits_recent` view for a read-only list
+with the newest visit first and a readable UTC timestamp.
+
 ```bash
 npx wrangler d1 execute tgstavares-visitors --remote --config ./wrangler.jsonc --command \
-  "SELECT datetime(visited_at, 'unixepoch') AS visited_at_utc, ip, country, city, region, asn, as_organization, language, path, referrer_host, user_agent FROM visits ORDER BY visited_at DESC LIMIT 100"
+  "SELECT * FROM visits_recent LIMIT 100"
 ```
 
 To summarize unique IPs over the last 30 days:
