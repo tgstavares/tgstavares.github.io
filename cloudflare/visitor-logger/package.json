@@ -1,0 +1,13 @@
+{
+  "name": "tgstavares-visitor-logger",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "npm test && wrangler deploy --dry-run --config ./wrangler.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "^4.125.0"
+  }
+}

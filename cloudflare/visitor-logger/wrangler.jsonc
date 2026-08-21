@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tgstavares-visitor-logger",
+  "main": "src/index.js",
+  "compatibility_date": "2026-08-21",
+  "workers_dev": false,
+  "route": {
+    "pattern": "www.tgstavares.com/*",
+    "zone_name": "tgstavares.com"
+  },
+  "d1_databases": [
+    {
+      "binding": "VISITOR_DB",
+      "database_name": "tgstavares-visitors",
+      "database_id": "5b3ff852-a6fb-4580-adc3-69b5c0db1d28"
+    }
+  ],
+  "triggers": {
+    "crons": ["17 3 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
