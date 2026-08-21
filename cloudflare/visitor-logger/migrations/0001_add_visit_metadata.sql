@@ -1,0 +1,6 @@
+ALTER TABLE visits ADD COLUMN city TEXT;
+ALTER TABLE visits ADD COLUMN region TEXT;
+ALTER TABLE visits ADD COLUMN asn INTEGER;
+ALTER TABLE visits ADD COLUMN as_organization TEXT;
+ALTER TABLE visits ADD COLUMN user_agent TEXT;
+ALTER TABLE visits ADD COLUMN language TEXT;
