@@ -55,7 +55,22 @@ test("server-renders the academic homepage", async () => {
   assert.match(html, /<script type="application\/ld\+json">/);
   assert.match(html, /"@type":"Person"/);
   assert.match(html, /"name":"Tiago Gomes da Silva Tavares"/);
+  assert.match(
+    html,
+    /"name":"ISEG – Lisbon School of Economics & Management, University of Lisbon"/,
+  );
   assert.match(html, /<h1 class="visually-hidden">Tiago Tavares<\/h1>/);
+  assert.match(
+    html,
+    /href="https:\/\/www\.iseg\.ulisboa\.pt\/en\/">ISEG, University of Lisbon<\/a>/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/www\.sas\.rochester\.edu\/eco\/graduate\/index\.html">University of Rochester<\/a> in 2015/,
+  );
+  assert.doesNotMatch(html, /Assistant Professor[^.]+University of Minho/);
+  assert.doesNotMatch(html, /I study how financial constraints/);
+  assert.match(html, /international macroeconomics, labor markets, misallocation/);
   assert.match(html, /Recent working papers/);
   assert.match(html, /Publications/);
   assert.match(html, /xhdfe: Fast high-dimensional fixed-effects estimation in Stata/);
@@ -159,6 +174,10 @@ test("server-renders the academic homepage", async () => {
   );
   assert.match(html, /<h2 id="home-title">Tiago Tavares<\/h2>/);
   assert.match(html, /Macroeconomics · International Economics · Firm Dynamics/);
+  assert.match(
+    html,
+    /<nav class="main-nav"[^>]*>.*?>Home<\/a>.*?>Research<\/a>.*?>CV<\/a>.*?href="\/resources\/">Econ Resources<\/a>.*?>Teaching<\/a>.*?<\/nav>/s,
+  );
   assert.doesNotMatch(
     html,
     /Current projects in macroeconomics|Published work|Peer-reviewed research on sovereign risk/,
@@ -171,6 +190,7 @@ test("server-renders the main secondary routes", async () => {
   const routes = [
     ["/research", "Research"],
     ["/teaching", "Teaching"],
+    ["/resources", "Econ Resources"],
     ["/cv", "Curriculum Vitae"],
   ];
 
@@ -203,7 +223,7 @@ test("serves production robots and sitemap metadata", async () => {
   assert.equal(sitemapResponse.status, 200);
   assert.match(sitemapResponse.headers.get("content-type") ?? "", /application\/xml/i);
   const sitemap = await sitemapResponse.text();
-  for (const path of ["/", "/research", "/teaching", "/cv"]) {
+  for (const path of ["/", "/research", "/teaching", "/resources", "/cv"]) {
     assert.match(sitemap, new RegExp(`<loc>https:\\/\\/www\\.tgstavares\\.com${path}<\\/loc>`));
   }
 });
@@ -271,6 +291,109 @@ test("teaching starts with current courses and links the complete previous recor
   );
 });
 
+test("econ resources collects useful and fun external links", async () => {
+  const response = await render("/resources");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<main class="page-shell resources-shell">/);
+  assert.match(html, /<h1 class="visually-hidden">Econ Resources<\/h1>/);
+  assert.match(html, /<p class="resources-intro">/);
+  assert.doesNotMatch(html, /class="page-header"/);
+  assert.match(
+    html,
+    /<h2 id="teaching-resources-heading">Teaching &amp; Course Materials<\/h2>.*Sovereign Default Reading List.*George Alessandria’s Teaching Resources.*Ph\.D\. Macro Theory II.*?aria-label="Macroeconomics \(opens in a new tab\)"/s,
+  );
+  assert.match(
+    html,
+    /<h2 id="computation-resources-heading">Computation<\/h2>.*Resources on Computation.*QuantEcon.*Dynare/s,
+  );
+  assert.match(
+    html,
+    /<h2 id="data-resources-heading">Data<\/h2>.*World Bank Open Data.*IMF Data.*OECD Data Explorer.*BIS Data Portal.*ECB Data Portal.*Global Capital Allocation Project.*Global Macro Database.*GGDC Productivity Databases.*IPUMS.*Eurostat.*FRED Economic Data/s,
+  );
+  assert.match(
+    html,
+    /<h2 id="research-resources-heading">Research &amp; Literature<\/h2>.*IDEAS\/RePEc.*NBER Working Papers.*CEPR Discussion Papers/s,
+  );
+  assert.match(
+    html,
+    /<h2 id="careers-resources-heading">Graduate Study &amp; Careers<\/h2>.*Preparing for Graduate School.*Applying to Economics PhD Programs.*Job Market Resources.*AEA Job Openings for Economists.*EconJobMarket.*<h2 id="fun-resources-heading">Economics for Fun<\/h2>.*Fun Economics Links.*The Optimal Taxation of Height.*The Deadweight Loss of Christmas/s,
+  );
+  assert.equal((html.match(/class="page-section resource-group"/g) ?? []).length, 6);
+  assert.match(
+    html,
+    /href="https:\/\/gmihalache\.com\/teaching\/sov-debt-and-default\/"[^>]*target="_blank"[^>]*rel="noreferrer"/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/gmihalache\.com\/computation\/"[^>]*target="_blank"[^>]*rel="noreferrer"/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/sites\.google\.com\/site\/pfeiferecon\/job-market-resources"[^>]*target="_blank"[^>]*rel="noreferrer"/,
+  );
+  assert.match(
+    html,
+    /href="https:\/\/sites\.google\.com\/site\/pfeiferecon\/fun-economics-links"[^>]*target="_blank"[^>]*rel="noreferrer"/,
+  );
+  for (const href of [
+    "https://sites.google.com/site/georgealessandria2/teaching/teaching",
+    "https://sites.nd.edu/esims/courses/ph-d-macro-theory-ii/",
+    "https://www.globalcapitalallocation.com",
+    "https://www.globalmacrodata.com/index.html",
+    "https://www.rug.nl/ggdc/productivity/",
+    "https://www.ipums.org",
+    "https://ec.europa.eu/eurostat",
+    "https://fred.stlouisfed.org",
+    "https://quantecon.org/",
+    "https://www.dynare.org/",
+    "https://data.worldbank.org/",
+    "https://data.imf.org/",
+    "https://data-explorer.oecd.org/",
+    "https://data.bis.org/",
+    "https://data.ecb.europa.eu/",
+    "https://ideas.repec.org/",
+    "https://www.nber.org/papers",
+    "https://cepr.org/publications/discussion-papers",
+    "https://www.aeaweb.org/joe/listings",
+    "https://econjobmarket.org/",
+    "https://www.aeaweb.org/resources/students/grad-prep",
+    "https://bldavies.com/blog/applying-economics-phd-programs/",
+    "https://www.aeaweb.org/articles?id=10.1257/pol.2.1.155",
+    "https://www.jstor.org/stable/2117564?seq=1",
+    "https://phdmacrobook.org",
+  ]) {
+    assert.ok(html.includes(`href="${href}"`), href);
+  }
+  assert.doesNotMatch(html, /CORE Econ|core-econ\.org|CEPII|cepii\.fr/i);
+  assert.equal((html.match(/class="resource-component-link"/g) ?? []).length, 10);
+  assert.doesNotMatch(
+    html,
+    /resource-component-links|class="resource-components"|The four components are:|Popular components include:/,
+  );
+  assert.match(
+    html,
+    /<span>Groningen Growth and Development Centre.*?Complementary cross-country productivity databases.*?class="resource-component-link".*?Penn World Table.*?<\/span>/s,
+  );
+  assert.match(
+    html,
+    /<span>IPUMS.*?Harmonized census and survey microdata.*?class="resource-component-link".*?IPUMS USA.*?<\/span>/s,
+  );
+  assert.match(
+    html,
+    /Penn World Table.*EU KLEMS.*Productivity Level Database.*WorldKLEMS Initiative/s,
+  );
+  assert.match(
+    html,
+    /IPUMS USA.*IPUMS CPS.*IPUMS International.*IPUMS Global Health.*IPUMS NHGIS.*IPUMS Time Use/s,
+  );
+  assert.doesNotMatch(
+    html,
+    /Relative levels of income, output, inputs|U\.S\. Census and American Community Survey microdata/,
+  );
+});
+
 test("CV is a native web page with the updated academic record", async () => {
   const response = await render("/cv");
   assert.equal(response.status, 200);
@@ -279,6 +402,8 @@ test("CV is a native web page with the updated academic record", async () => {
   assert.match(html, /<main class="page-shell cv-shell">/);
   assert.match(html, /Last updated September 2026/);
   assert.match(html, /Assistant Professor, University of Lisbon - ISEG \(Portugal\)/);
+  assert.match(html, /ISEG – Lisbon School of Economics &amp; Management/);
+  assert.match(html, /Rua do Quelhas, 6/);
   assert.match(html, /Firm Dynamics/);
   assert.match(html, /COVID-19 Economics/);
   assert.match(html, /Universidade Católica Portuguesa/);

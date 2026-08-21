@@ -79,13 +79,15 @@ export default function CvPage() {
         <div className="cv-contact-address">
           <p className="cv-contact-label">Address</p>
           <address>
-            Departamento de Economia
+            Department of Economics
             <br />
-            Universidade do Minho - EEG
+            ISEG – Lisbon School of Economics &amp; Management
             <br />
-            Rua da Universidade
+            University of Lisbon
             <br />
-            Braga, 4710-057, Portugal
+            Rua do Quelhas, 6
+            <br />
+            1200-781 Lisbon, Portugal
           </address>
         </div>
         <dl className="cv-contact-list">

@@ -4,7 +4,7 @@ export const SITE_NAME = "Tiago Tavares";
 export const SITE_URL = new URL("https://www.tgstavares.com");
 export const DEFAULT_TITLE = "Tiago Tavares · Economist";
 export const DEFAULT_DESCRIPTION =
-  "Academic website of Tiago Tavares, Assistant Professor of Economics at the University of Minho. Research in macroeconomics, sovereign debt, and firm dynamics.";
+  "Academic website of Tiago Tavares, Assistant Professor of Economics at ISEG, University of Lisbon. Research in macroeconomics, sovereign debt, and firm dynamics.";
 
 export const SOCIAL_IMAGE = {
   url: "/og.png",
@@ -60,8 +60,8 @@ export const PERSON_JSON_LD = {
   jobTitle: "Assistant Professor of Economics",
   worksFor: {
     "@type": "CollegeOrUniversity",
-    name: "University of Minho",
-    url: "https://www.uminho.pt/",
+    name: "ISEG – Lisbon School of Economics & Management, University of Lisbon",
+    url: "https://www.iseg.ulisboa.pt/en/",
   },
   sameAs: [
     "https://github.com/tgstavares",

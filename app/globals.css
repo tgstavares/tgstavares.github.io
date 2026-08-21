@@ -572,6 +572,15 @@ html[data-palette="day"] .palette-day {
   color: var(--muted);
 }
 
+.resources-intro {
+  margin: 0 0 31px;
+  color: var(--muted);
+}
+
+.resources-shell .page-section + .page-section {
+  margin-top: 31px;
+}
+
 .page-section + .page-section {
   margin-top: 45px;
 }
@@ -643,6 +652,15 @@ html[data-palette="day"] .palette-day {
 
 .resource-list a {
   text-decoration: none;
+}
+
+.resource-list a:hover {
+  text-decoration: underline;
+}
+
+.resource-component-link {
+  font-weight: 650;
+  white-space: nowrap;
 }
 
 .cv-actions {

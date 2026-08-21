@@ -28,12 +28,16 @@ export default function Home() {
                 Macroeconomics · International Economics · Firm Dynamics
               </p>
               <p>
-                I am an Assistant Professor in the Department of Economics at the
-                University of Minho. My research focuses on sovereign default, international
-                macroeconomics, misallocation, firm investment, and macroeconomics
-                more broadly. I study how financial constraints, fiscal policy, and
-                information shape the decisions of governments, firms, and
-                households.
+                I am an Assistant Professor in the Department of Economics at{" "}
+                <a href="https://www.iseg.ulisboa.pt/en/">
+                  ISEG, University of Lisbon
+                </a>
+                . I received my Ph.D. in Economics from the{" "}
+                <a href="https://www.sas.rochester.edu/eco/graduate/index.html">
+                  University of Rochester
+                </a> in 2015. My research focuses on sovereign default, international
+                macroeconomics, labor markets, misallocation, firm investment, and
+                macroeconomics more broadly.
               </p>
               <div className="profile-details">
                 <p>

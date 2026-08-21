@@ -9,8 +9,9 @@ import { FaGithub } from "react-icons/fa";
 const navigation = [
   { href: "/", label: "Home" },
   { href: "/research", label: "Research" },
-  { href: "/teaching", label: "Teaching" },
   { href: "/cv", label: "CV" },
+  { href: "/resources", label: "Econ Resources" },
+  { href: "/teaching", label: "Teaching" },
 ];
 
 const palettes = [
