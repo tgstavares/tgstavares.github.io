@@ -56,24 +56,40 @@ test("logs document requests but ignores assets and non-GET requests", () => {
   );
 });
 
-test("builds a minimal visit without retaining query strings", () => {
+test("builds visit metadata without retaining query strings", () => {
   const request = new Request(
     "https://www.tgstavares.com/research/?private=value",
     {
       headers: {
         "cf-connecting-ip": "203.0.113.9",
+        "accept-language": "pt-PT,pt;q=0.9,en;q=0.8",
+        "user-agent": "ExampleBrowser/1.0",
         referer: "https://example.edu/some/private/path?query=value"
       }
     }
   );
-  Object.defineProperty(request, "cf", { value: { country: "PT" } });
+  Object.defineProperty(request, "cf", {
+    value: {
+      country: "PT",
+      city: "Lisbon",
+      region: "Lisbon",
+      asn: 64500,
+      asOrganization: "Example University"
+    }
+  });
 
   assert.deepEqual(visitFromRequest(request, 1_725_000_000_000), {
     visitedAt: 1_725_000_000,
     ip: "203.0.113.9",
     country: "PT",
     path: "/research/",
-    referrerHost: "example.edu"
+    referrerHost: "example.edu",
+    city: "Lisbon",
+    region: "Lisbon",
+    asn: 64500,
+    asOrganization: "Example University",
+    userAgent: "ExampleBrowser/1.0",
+    language: "pt-PT"
   });
 });
 
@@ -91,7 +107,13 @@ test("writes visits and prunes records older than thirty days", async () => {
     ip: "203.0.113.9",
     country: "PT",
     path: "/research/",
-    referrerHost: "example.edu"
+    referrerHost: "example.edu",
+    city: "Lisbon",
+    region: "Lisbon",
+    asn: 64500,
+    asOrganization: "Example University",
+    userAgent: "ExampleBrowser/1.0",
+    language: "pt-PT"
   });
   await pruneOldVisits(database);
 
@@ -101,7 +123,13 @@ test("writes visits and prunes records older than thirty days", async () => {
     "203.0.113.9",
     "PT",
     "/research/",
-    "example.edu"
+    "example.edu",
+    "Lisbon",
+    "Lisbon",
+    64500,
+    "Example University",
+    "ExampleBrowser/1.0",
+    "pt-PT"
   ]);
   assert.equal(database.calls[0].ran, true);
   assert.match(database.calls[1].sql, /DELETE FROM visits/);

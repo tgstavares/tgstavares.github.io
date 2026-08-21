@@ -572,13 +572,10 @@ html[data-palette="day"] .palette-day {
   color: var(--muted);
 }
 
-.resources-intro {
-  margin: 0 0 31px;
-  color: var(--muted);
-}
-
 .resources-shell .page-section + .page-section {
   margin-top: 31px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 
 .page-section + .page-section {

@@ -32,6 +32,15 @@ function referrerHost(request) {
   }
 }
 
+function primaryLanguage(request) {
+  const acceptLanguage = request.headers.get("accept-language");
+  if (!acceptLanguage) {
+    return null;
+  }
+
+  return bounded(acceptLanguage.split(",", 1)[0].trim(), 35);
+}
+
 export function visitFromRequest(request, now = Date.now()) {
   const ip = request.headers.get("cf-connecting-ip");
   if (!ip) {
@@ -44,7 +53,13 @@ export function visitFromRequest(request, now = Date.now()) {
     ip: bounded(ip, 64),
     country: bounded(request.cf?.country ?? null, 2),
     path: bounded(url.pathname, 2048) ?? "/",
-    referrerHost: referrerHost(request)
+    referrerHost: referrerHost(request),
+    city: bounded(request.cf?.city ?? null, 128),
+    region: bounded(request.cf?.region ?? null, 128),
+    asn: Number.isSafeInteger(request.cf?.asn) ? request.cf.asn : null,
+    asOrganization: bounded(request.cf?.asOrganization ?? null, 255),
+    userAgent: bounded(request.headers.get("user-agent"), 512),
+    language: primaryLanguage(request)
   };
 }
 
@@ -52,15 +67,22 @@ export async function writeVisit(database, visit) {
   await database
     .prepare(
       `INSERT INTO visits
-        (visited_at, ip, country, path, referrer_host)
-       VALUES (?1, ?2, ?3, ?4, ?5)`
+        (visited_at, ip, country, path, referrer_host, city, region, asn,
+         as_organization, user_agent, language)
+       VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11)`
     )
     .bind(
       visit.visitedAt,
       visit.ip,
       visit.country,
       visit.path,
-      visit.referrerHost
+      visit.referrerHost,
+      visit.city,
+      visit.region,
+      visit.asn,
+      visit.asOrganization,
+      visit.userAgent,
+      visit.language
     )
     .run();
 }

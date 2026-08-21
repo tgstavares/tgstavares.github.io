@@ -10,7 +10,11 @@ Each record contains:
 - visitor IP address;
 - Cloudflare country code;
 - requested path, without its query string; and
-- referrer's hostname, without its path or query string.
+- referrer's hostname, without its path or query string;
+- approximate city and region;
+- network ASN and organization;
+- browser user-agent string; and
+- primary browser language.
 
 A daily scheduled task deletes records older than 30 days.
 
@@ -33,11 +37,20 @@ npm run check
 npx wrangler deploy --config ./wrangler.jsonc
 ```
 
+For an existing deployment, apply pending migrations before deploying:
+
+```bash
+npx wrangler d1 migrations apply tgstavares-visitors --remote --config ./wrangler.jsonc
+```
+
 ## Read recent visits
+
+In Cloudflare D1 Studio, select the `visits_recent` view for a read-only list
+with the newest visit first and a readable UTC timestamp.
 
 ```bash
 npx wrangler d1 execute tgstavares-visitors --remote --config ./wrangler.jsonc --command \
-  "SELECT datetime(visited_at, 'unixepoch') AS visited_at_utc, ip, country, path, referrer_host FROM visits ORDER BY visited_at DESC LIMIT 100"
+  "SELECT * FROM visits_recent LIMIT 100"
 ```
 
 To summarize unique IPs over the last 30 days:
@@ -46,3 +59,25 @@ To summarize unique IPs over the last 30 days:
 npx wrangler d1 execute tgstavares-visitors --remote --config ./wrangler.jsonc --command \
   "SELECT ip, country, COUNT(*) AS page_views, datetime(MAX(visited_at), 'unixepoch') AS last_seen_utc FROM visits GROUP BY ip, country ORDER BY MAX(visited_at) DESC"
 ```
+
+## Inspect an IP address
+
+The standalone Python script in `scripts/ip_profile.py` generates a passive
+network profile as a Markdown table:
+
+```bash
+./scripts/ip_profile.py 1.1.1.1
+```
+
+For machine-readable output:
+
+```bash
+./scripts/ip_profile.py --json 1.1.1.1
+```
+
+It requires Python 3 but no third-party packages. The script validates IPv4 and
+IPv6 input, then uses public reverse-DNS, RDAP, RIPEstat, IPinfo, and DB-IP
+lookups. It does not contact the target IP or scan ports. Geolocation is only an
+approximation, and the network-type field is a labeled heuristic. The queried
+IP address is sent to those lookup services. An `IPINFO_TOKEN` environment
+variable can optionally be set if higher IPinfo request limits are needed.
