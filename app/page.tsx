@@ -5,7 +5,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { PaperList, SectionHeading } from "./site-components";
 import { publications, workingPapers } from "./site-data";
 
-const recentWorkingPapers = workingPapers.slice(0, 4);
+const recentWorkingPapers = workingPapers.slice(0, 3);
 
 export default function Home() {
   return (

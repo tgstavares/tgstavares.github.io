@@ -27,7 +27,7 @@ export const workingPapers: Paper[] = [
         <a href="https://reisportela.github.io">Miguel Portela</a>
       </>
     ),
-    venue: "Working paper",
+    venue: "Submitted",
     href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7271338",
     links: [
       {
@@ -56,27 +56,6 @@ export const workingPapers: Paper[] = [
     ],
     abstract:
       "This paper develops a theory of financing and governing transformative search: costly search for a transformative opportunity whose timing, payoff, and implementation are uncertain. The central object is the runway-attainability wedge, the gap between desired runway and the runway that can be financed while preserving authority over search. The decomposition separates this wedge into financing-frontier and governance shortfalls. Liquidity is valuable because it buys discovery time and, after discovery, implementation capacity. The decision criterion is whether a financing architecture preserves attainable runway and search incentives, not how much capital it raises.",
-  },
-  {
-    year: "2024",
-    title: "Financially Constrained Households and Consumption Volatility in Open Economies",
-    authors: (
-      <>
-        Tiago Tavares joint with{" "}
-        <a href="https://s-anurag.github.io">Anurag Singh</a>
-      </>
-    ),
-    venue: "Revise and resubmit",
-    journal: "IMF Economic Review",
-    href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5020698",
-    links: [
-      {
-        label: "LINK",
-        href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5020698",
-      },
-    ],
-    abstract:
-      "Emerging market economies often exhibit aggregate consumption that is more volatile than aggregate income, contrary to predictions of standard macro models based on consumption smoothing. We explore whether heterogeneity in access to financial services can explain this excess consumption volatility. We extend the standard small-open-economy RBC model by incorporating hand-to-mouth and unconstrained households alongside procyclical firm entry, and estimate the model using data for advanced, emerging, and low-income economies.",
   },
   {
     year: "2024",
@@ -147,6 +126,27 @@ export const workingPapers: Paper[] = [
 ];
 
 export const publications: Paper[] = [
+  {
+    year: "2026",
+    title: "Financially Constrained Households and Consumption Volatility in Open Economies",
+    authors: (
+      <>
+        Tiago Tavares joint with{" "}
+        <a href="https://s-anurag.github.io">Anurag Singh</a>
+      </>
+    ),
+    journal: "IMF Economic Review",
+    href: "https://doi.org/10.1057/s41308-026-00333-1",
+    links: [
+      { label: "DOI", href: "https://doi.org/10.1057/s41308-026-00333-1" },
+      {
+        label: "Working paper",
+        href: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5020698",
+      },
+    ],
+    abstract:
+      "Emerging market economies often exhibit aggregate consumption that is more volatile than aggregate income, contrary to predictions of standard macro models based on consumption smoothing. We explore whether heterogeneity in access to financial services can explain this excess consumption volatility. We extend the standard small-open-economy RBC model by incorporating hand-to-mouth and unconstrained households alongside procyclical firm entry, and estimate the model using data for advanced, emerging, and low-income economies.",
+  },
   {
     year: "2026",
     title: "Informality, Tax Distortions, and the Cyclicality of Fiscal Policy",

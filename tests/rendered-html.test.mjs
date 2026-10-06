@@ -139,7 +139,7 @@ test("server-renders the academic homepage", async () => {
   );
   assert.match(
     html,
-    /Revise and resubmit(?:<!-- -->)?, <strong class="journal-name"><em>IMF Economic Review<\/em><\/strong>/,
+    /href="https:\/\/doi\.org\/10\.1057\/s41308-026-00333-1"/,
   );
   assert.match(
     html,
@@ -400,7 +400,7 @@ test("CV is a native web page with the updated academic record", async () => {
 
   const html = await response.text();
   assert.match(html, /<main class="page-shell cv-shell">/);
-  assert.match(html, /Last updated September 2026/);
+  assert.match(html, /Last updated October 2026/);
   assert.match(html, /Assistant Professor, University of Lisbon - ISEG \(Portugal\)/);
   assert.match(html, /ISEG – Lisbon School of Economics &amp; Management/);
   assert.match(html, /Rua do Quelhas, 6/);

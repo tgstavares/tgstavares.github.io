@@ -25,6 +25,8 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 const publicationDates: Record<string, string> = {
+  "Financially Constrained Households and Consumption Volatility in Open Economies":
+    "October 2026",
   "Informality, Tax Distortions, and the Cyclicality of Fiscal Policy": "May 2026",
   "The Role of International Reserves in Sovereign Debt Restructuring under Fiscal Adjustment":
     "May 2025",
@@ -61,7 +63,7 @@ export default function CvPage() {
         <div>
           <p className="section-eyebrow">Curriculum Vitae</p>
           <h1>Tiago Tavares</h1>
-          <p className="cv-updated">Last updated September 2026</p>
+          <p className="cv-updated">Last updated October 2026</p>
         </div>
         <div className="cv-actions" aria-label="CV PDF options">
           <a className="button-link" href="/files/TiagoTavares_CV.pdf" download>
