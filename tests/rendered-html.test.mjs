@@ -161,7 +161,7 @@ test("server-renders the academic homepage", async () => {
   assert.match(html, /<strong>Full name:<\/strong> Tiago Gomes da Silva Tavares/);
   assert.match(html, /href="\/files\/TiagoTavares_CV\.pdf">PDF<\/a>/);
   assert.match(html, /mailto:tgstavares@gmail\.com/);
-  assert.match(html, /mailto:tgstavares@eeg\.uminho\.pt/);
+  assert.match(html, /mailto:tgstavares@iseg\.ulisboa\.pt/);
   assert.match(html, />github\.com\/tgstavares<\/a>/);
   assert.match(html, /href="https:\/\/x\.com\/tgstavares">x\.com\/tgstavares<\/a>/);
   assert.match(
@@ -403,7 +403,7 @@ test("CV is a native web page with the updated academic record", async () => {
   assert.match(html, /Last updated October 2026/);
   assert.match(html, /Assistant Professor, University of Lisbon - ISEG \(Portugal\)/);
   assert.match(html, /ISEG – Lisbon School of Economics &amp; Management/);
-  assert.match(html, /Rua do Quelhas, 6/);
+  assert.match(html, /Rua Miguel Lupi, 20/);
   assert.match(html, /Firm Dynamics/);
   assert.match(html, /COVID-19 Economics/);
   assert.match(html, /Universidade Católica Portuguesa/);

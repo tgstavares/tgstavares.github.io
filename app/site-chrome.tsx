@@ -93,7 +93,7 @@ export function SiteHeader() {
         <div className="header-actions">
           <a
             className="header-icon-link"
-            href="mailto:tgstavares@eeg.uminho.pt"
+            href="mailto:tgstavares@iseg.ulisboa.pt"
             aria-label="Email Tiago Tavares"
             title="Email"
           >

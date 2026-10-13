@@ -59,8 +59,8 @@ export default function Home() {
                     <strong>Email:</strong>{" "}
                     <a href="mailto:tgstavares@gmail.com">tgstavares@gmail.com</a>
                     <span aria-hidden="true"> / </span>
-                    <a href="mailto:tgstavares@eeg.uminho.pt">
-                      tgstavares@eeg.uminho.pt
+                    <a href="mailto:tgstavares@iseg.ulisboa.pt">
+                      tgstavares@iseg.ulisboa.pt
                     </a>
                   </span>
                 </p>

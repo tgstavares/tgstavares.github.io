@@ -87,9 +87,9 @@ export default function CvPage() {
             <br />
             University of Lisbon
             <br />
-            Rua do Quelhas, 6
+            Rua Miguel Lupi, 20
             <br />
-            1200-781 Lisbon, Portugal
+            1249-078 Lisbon, Portugal
           </address>
         </div>
         <dl className="cv-contact-list">
@@ -99,7 +99,7 @@ export default function CvPage() {
           </dd>
           <dt>Email</dt>
           <dd className="cv-contact-emails">
-            <a href="mailto:tgstavares@eeg.uminho.pt">tgstavares@eeg.uminho.pt</a>
+            <a href="mailto:tgstavares@iseg.ulisboa.pt">tgstavares@iseg.ulisboa.pt</a>
             <a href="mailto:tgstavares@gmail.com">tgstavares@gmail.com</a>
           </dd>
           <dt>Homepage</dt>
