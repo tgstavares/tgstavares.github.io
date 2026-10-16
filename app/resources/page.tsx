@@ -156,6 +156,14 @@ const resources: EconResource[] = [
     group: "teaching",
   },
   {
+    title: "Economics & Finance Research Observatory",
+    source: "Tiago Tavares",
+    description:
+      "Explore economics and finance publication portfolios, compare research centers, and inspect publication trends and concentration using RePEc journal impact factors.",
+    href: "https://econ-research-observatory.streamlit.app/",
+    group: "data",
+  },
+  {
     title: "World Bank Open Data",
     source: "World Bank",
     description:

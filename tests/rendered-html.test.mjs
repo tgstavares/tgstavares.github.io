@@ -321,6 +321,8 @@ test("econ resources collects useful and fun external links", async () => {
     /<h2 id="careers-resources-heading">Graduate Study &amp; Careers<\/h2>.*Preparing for Graduate School.*Applying to Economics PhD Programs.*Job Market Resources.*AEA Job Openings for Economists.*EconJobMarket.*<h2 id="fun-resources-heading">Economics for Fun<\/h2>.*Fun Economics Links.*The Optimal Taxation of Height.*The Deadweight Loss of Christmas/s,
   );
   assert.equal((html.match(/class="page-section resource-group"/g) ?? []).length, 6);
+  assert.match(html, /Economics &amp; Finance Research Observatory/);
+  assert.match(html, /href="https:\/\/econ-research-observatory\.streamlit\.app\/"[^>]*target="_blank"[^>]*rel="noreferrer"/);
   assert.match(
     html,
     /href="https:\/\/gmihalache\.com\/teaching\/sov-debt-and-default\/"[^>]*target="_blank"[^>]*rel="noreferrer"/,
